@@ -4,3 +4,4 @@ __pycache__/
 .idea/
 db.sqlite3
 static/
+base-vue.html
