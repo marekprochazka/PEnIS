@@ -1,8 +1,9 @@
 module.exports = {
     publicPath: process.env.NODE_ENV === 'production' ? '/static/vue/' : 'http://127.0.0.1:8080',
     outputDir: '../backend/static/vue',
-    indexPath: '../../templates/base-vue.html', // relative to outputDir!
 
+    // relative to outputDir!
+    indexPath: '../../templates/base-vue.html',
 
     chainWebpack: config => {
     /*
@@ -23,5 +24,9 @@ module.exports = {
             .writeToDisk(filePath => filePath.endsWith('index.html'));
         config.entry('main')
             .add('./entry.js')
-    }
+    },
+
+    transpileDependencies: [
+      'vuetify'
+    ]
 }
