@@ -1,13 +1,8 @@
 <template>
-  <v-app v-if="!$route.meta.loginRequired">
-    <v-main>
-      <router-view/>
-    </v-main>
-  </v-app>
-  <v-app v-else>
+  <v-app>
     <v-main>
       <!-- TODO NAVBAR -->
-      <router-view />
+      <router-view/>
     </v-main>
   </v-app>
 </template>
