@@ -42,9 +42,9 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
-THIRD_PARTY_APPS = ['rest_framework', 'django_js_reverse']
+THIRD_PARTY_APPS = ['rest_framework', 'django_js_reverse', 'django_extensions']
 
-MY_APPS = ['core.apps.CoreConfig']
+MY_APPS = ['core.apps.CoreConfig', 'sleepover_form.apps.SleepoverFormConfig']
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + MY_APPS
 
@@ -109,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "cs"
 
 TIME_ZONE = 'UTC'
 
