@@ -1,27 +1,21 @@
 <template>
   <v-app>
     <v-main>
-      <!-- TODO NAVBAR -->
-      <p>{{test}}</p>
-      <router-view/>
+      <Navbar />
+      <router-view class="ma-4" />
     </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import reverse from 'django-reverse'
+import Navbar from '@/components/navbar/Navbar.vue'
+
 
 export default Vue.extend({
   name: 'App',
-  computed: {
-    test() {
-      return reverse('core:test')
-    }
-  },
-
-  data: () => ({
-    //
-  }),
+  components: {
+    Navbar
+  }
 });
 </script>
