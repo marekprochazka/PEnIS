@@ -42,7 +42,7 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
-THIRD_PARTY_APPS = ['rest_framework']
+THIRD_PARTY_APPS = ['rest_framework', 'django_js_reverse']
 
 MY_APPS = ['core.apps.CoreConfig']
 
@@ -132,3 +132,6 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SITE_ID = 1
+
+JS_REVERSE_OUTPUT_PATH = os.path.join(BASE_DIR, '../frontend/src/django-reverse')
+JS_REVERSE_JS_GLOBAL_OBJECT_NAME = 'window'

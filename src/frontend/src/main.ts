@@ -5,6 +5,7 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 
 import './styles/_entry.scss'
+import './django-reverse/reverse.js'
 
 Vue.config.productionTip = false
 

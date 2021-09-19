@@ -1,0 +1,1 @@
+import './src/django-reverse/reverse'
