@@ -11,7 +11,7 @@ schema_view = get_schema_view(
         default_version='v1',
         description="Backend API for Flat Electronic Information System (PEnIS)",
         terms_of_service="https://www.google.com/policies/terms/",
-        contact=openapi.Contact(email="contact@snippets.local"),
+        contact=openapi.Contact(email=""),
         license=openapi.License(name="BSD License"),
     ),
     public=True,
