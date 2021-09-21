@@ -5,6 +5,7 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/core/', include('core.urls.api')),
+    path('api/sleepover-form/', include('sleepover_form.urls.api')),
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
     path('<path:resource>', TemplateView.as_view(template_name='index.html'), name='index_pathed'),
 ]
