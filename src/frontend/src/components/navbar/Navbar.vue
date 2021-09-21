@@ -2,19 +2,19 @@
   <v-navigation-drawer
       dark
       permanent
-      expand-on-hover
       color="primary"
       app
       bottom
-      v-model="toggle"
+      :mini-variant="toggle"
   >
     <v-list
         nav
         dense
     >
-      <v-list-item link @click="toggle =!toggle ">
+      <v-list-item link @click="toggle = !toggle">
         <v-list-item-icon>
-          <v-icon>mdi-menu</v-icon>
+          <v-icon v-if="toggle">mdi-menu</v-icon>
+          <v-icon v-else>mdi-close</v-icon>
         </v-list-item-icon>
         <v-list-item-title>
           Menu
@@ -41,9 +41,19 @@ export default {
       toggle: true,
       navItems: [
         {
-          icon: 'mdi-folder',
-          text: 'TEST',
-          route: 'Test'
+          icon: 'mdi-home',
+          text: 'Domů',
+          route: 'Home'
+        },
+        {
+          icon: 'mdi-calendar-plus',
+          text: 'Nová žádost o pobyt',
+          route: 'New-sleepover-request'
+        },
+        {
+          icon: 'mdi-calendar',
+          text: 'Seznam pobytů',
+          route: 'Sleepovers-list'
         }
       ]
 

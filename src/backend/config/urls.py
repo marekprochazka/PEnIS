@@ -8,7 +8,7 @@ from drf_yasg import openapi
 schema_view = get_schema_view(
     openapi.Info(
         title="PEnIS API",
-        default_version='v1',
+        default_version='0.1',
         description="Backend API for Flat Electronic Information System (PEnIS)",
         terms_of_service="https://www.google.com/policies/terms/",
         contact=openapi.Contact(email=""),
