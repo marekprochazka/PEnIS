@@ -42,7 +42,7 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
-THIRD_PARTY_APPS = ['rest_framework', 'django_js_reverse', 'django_extensions']
+THIRD_PARTY_APPS = ['rest_framework', 'django_js_reverse', 'django_extensions', 'drf_yasg']
 
 MY_APPS = ['core.apps.CoreConfig', 'sleepover_form.apps.SleepoverFormConfig']
 
