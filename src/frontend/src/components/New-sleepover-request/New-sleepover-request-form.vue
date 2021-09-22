@@ -1,6 +1,6 @@
 <template>
   <v-card class="mx--center elevation-2 light">
-    <v-form>
+    <v-form @submit.prevent="sendData">
       <v-container>
         <v-row>
           <v-col
@@ -36,12 +36,12 @@
           >
             <v-text-field
                 readonly
-                v-model="formData.sleepover_date_to"
-                label="Datum odjezdu"
+                v-model="formData.estimated_arrive_time"
+                label="Odhadovaný čas příjezdu"
                 validate-on-blur
             >
               <template v-slot:append>
-                <DatePicker v-model="formData.sleepover_date_to"/>
+                <TimePicker v-model="formData.estimated_arrive_time"/>
               </template>
             </v-text-field>
           </v-col>
@@ -53,14 +53,15 @@
           >
             <v-text-field
                 readonly
-                v-model="formData.estimated_arrive_time"
-                label="Odhadovaný čas příjezdu"
+                v-model="formData.sleepover_date_to"
+                label="Datum odjezdu"
                 validate-on-blur
             >
               <template v-slot:append>
-                <TimePicker v-model="formData.estimated_arrive_time"/>
+                <DatePicker v-model="formData.sleepover_date_to"/>
               </template>
             </v-text-field>
+
           </v-col>
           <v-col
               cols="12"
@@ -78,6 +79,68 @@
             </v-text-field>
           </v-col>
         </v-row>
+        <v-row>
+          <v-col
+              cols="12"
+              md="3"
+          >
+            <v-text-field
+                label="Počet osob"
+                v-model="formData.num_persons"
+                validate-on-blur
+                type="number"
+            />
+          </v-col>
+          <v-col
+              cols="12"
+              md="3"
+          >
+            <v-checkbox
+                label="Bude sex?"
+                v-model="formData.coitus"
+            />
+          </v-col>
+        </v-row>
+        <v-row v-if="formData.coitus">
+          <v-col
+              cols="12"
+              md="6"
+          >
+            <v-text-field
+                readonly
+                v-model="formData.estimated_coitus_time_start"
+                label="Odhadovaný čas začátku sexu"
+                validate-on-blur
+            >
+              <template v-slot:append>
+                <TimePicker v-model="formData.estimated_coitus_time_start"/>
+              </template>
+            </v-text-field>
+          </v-col>
+          <v-col
+              cols="12"
+              md="6"
+          >
+            <v-text-field
+                readonly
+                v-model="formData.estimated_coitus_time_end"
+                label="Odhadovaný čas konce sexu"
+                validate-on-blur
+            >
+              <template v-slot:append>
+                <TimePicker v-model="formData.estimated_coitus_time_end"/>
+              </template>
+            </v-text-field>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col
+              cols="12"
+              md="6"
+          >
+            <v-btn type="submit" color="primary" block>Odeslat žádost</v-btn>
+          </v-col>
+        </v-row>
       </v-container>
     </v-form>
   </v-card>
@@ -86,6 +149,7 @@
 <script>
 import DatePicker from '@/components/utils/Date-picker'
 import TimePicker from '@/components/utils/Time-picker'
+import {createSleepoverRequest} from "@/components/New-sleepover-request/api";
 
 export default {
   name: 'New-sleepover-request-form',
@@ -105,6 +169,15 @@ export default {
       }
     }
   },
+  methods: {
+    sendData() {
+      createSleepoverRequest(this.formData)
+          .then(() => {
+            console.log('finished')
+          })
+    }
+  },
+
   components: {
     DatePicker,
     TimePicker

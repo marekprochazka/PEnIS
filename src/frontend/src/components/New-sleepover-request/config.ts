@@ -1,5 +1,6 @@
 export const URLS = {
-    list:'sleepover_form:list'
+    list:'sleepover_form:list',
+    create:'sleepover_form:create',
 }
 
 export interface INewSleepoverRequest {

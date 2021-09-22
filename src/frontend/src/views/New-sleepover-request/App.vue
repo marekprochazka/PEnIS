@@ -1,6 +1,6 @@
 <template>
   <div class="NewSleepoverRequest__container">
-    <h1>This gon be some epic form one day</h1>
+    <h1 class="mt-3 mb-3">Žádost o přespání</h1>
     <NewSleepoverRequestForm/>
   </div>
 </template>
