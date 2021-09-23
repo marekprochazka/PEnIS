@@ -15,3 +15,13 @@ export interface INewSleepoverRequest {
     estimated_coitus_time_end:string,
     accepted: boolean,
 }
+
+export interface INewSleepoverRequestListItem {
+    id:string
+    requester_name:string,
+    sleepover_date_from: string,
+    sleepover_date_to: string,
+    num_persons: number,
+    coitus: boolean,
+    accepted: boolean,
+}

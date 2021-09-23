@@ -173,7 +173,7 @@ export default {
     sendData() {
       createSleepoverRequest(this.formData)
           .then(() => {
-            console.log('finished')
+            this.$router.push({name:'Sleepovers-list'})
           })
     }
   },

@@ -1,11 +1,18 @@
 <template>
-  <h1>This gon be some cosy page with list of requests and nice calendar</h1>
+  <div class="sleepoversList__container">
+    <SleepoverRequestsTable />
+  </div>
 </template>
 
 <script>
 
+import SleepoverRequestsTable from '@/components/Sleepover-list/Sleepover-requests-table'
+
 export default {
-  name: 'Sleepovers-list'
+  name: 'Sleepovers-list',
+  components: {
+    SleepoverRequestsTable
+  }
 }
 
 </script>
