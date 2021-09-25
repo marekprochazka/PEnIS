@@ -100,6 +100,18 @@
                 v-model="formData.coitus"
             />
           </v-col>
+          <v-col v-if="formData.coitus"
+                 cols="12" md="6"
+          >
+
+            <v-select
+                label="Pravděpodobnost sexu"
+              v-model="formData.coitus_probability"
+              :items="coitus_probabilities"
+              :item-text="value => value.description"
+              :item-value="value => value"
+            />
+          </v-col>
         </v-row>
         <v-row v-if="formData.coitus">
           <v-col
@@ -143,13 +155,14 @@
         </v-row>
       </v-container>
     </v-form>
+    {{ coitus_probabilities }}
   </v-card>
 </template>
 
 <script>
 import DatePicker from '@/components/utils/Date-picker'
 import TimePicker from '@/components/utils/Time-picker'
-import {createSleepoverRequest} from "@/components/New-sleepover-request/api";
+import {createSleepoverRequest, fetchTypeCoitusProbabilities} from "@/components/New-sleepover-request/api";
 
 export default {
   name: 'New-sleepover-request-form',
@@ -166,15 +179,40 @@ export default {
         estimated_coitus_time_start: null,
         estimated_coitus_time_end: null,
         accepted: false,
-      }
+        coitus_probability: null
+      },
+      coitus_probabilities: null
     }
   },
+  async mounted() {
+    fetchTypeCoitusProbabilities()
+        .then(response => {
+          this.coitus_probabilities = response.data
+        })
+  },
+
   methods: {
     sendData() {
+      this.formData.coitus_probability = this.formData.coitus_probability ? this.formData.coitus_probability.id : null
       createSleepoverRequest(this.formData)
           .then(() => {
-            this.$router.push({name:'Sleepovers-list'})
+            this.$router.push({name: 'Sleepovers-list'})
           })
+    },
+    nullizeCoitusVariables() {
+      this.formData.coitus_probability = null
+      this.formData.estimated_coitus_time_start = null
+      this.formData.estimated_coitus_time_end = null
+    }
+  },
+
+  watch: {
+    'formData.coitus': {
+      handler(val) {
+        if (!val) {
+          this.nullizeCoitusVariables()
+        }
+      }
     }
   },
 

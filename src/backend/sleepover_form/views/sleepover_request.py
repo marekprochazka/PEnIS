@@ -1,7 +1,8 @@
 from rest_framework.generics import ListAPIView, CreateAPIView, DestroyAPIView
 
 from sleepover_form.models import SleepoverRequest
-from sleepover_form.serializers.sleepover_request import SleepoverRequestSerializer, SleepoverRequestListSerializer
+from sleepover_form.serializers.sleepover_request import SleepoverRequestSerializer, SleepoverRequestListSerializer, \
+    SleepoverRequestUpdateSerializer
 
 
 class SleepoverRequestListView(ListAPIView):
@@ -10,7 +11,7 @@ class SleepoverRequestListView(ListAPIView):
 
 
 class SleepoverRequestCreateView(CreateAPIView):
-    serializer_class = SleepoverRequestSerializer
+    serializer_class = SleepoverRequestUpdateSerializer
 
 
 class SleepoverRequestDestroyView(DestroyAPIView):

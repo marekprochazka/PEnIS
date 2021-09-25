@@ -1,6 +1,7 @@
 export const URLS = {
     list:'sleepover_form:list',
     create:'sleepover_form:create',
+    probabilitiesList:'sleepover_form:coitus_probabilities_list'
 }
 
 export interface INewSleepoverRequest {
@@ -14,6 +15,13 @@ export interface INewSleepoverRequest {
     estimated_coitus_time_start: string,
     estimated_coitus_time_end:string,
     accepted: boolean,
+    coitus_probability: string,
+}
+
+export interface ITypeCoitusProbability {
+    identifier: string,
+    description: string,
+    id: string
 }
 
 export interface INewSleepoverRequestListItem {
