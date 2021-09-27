@@ -6,7 +6,7 @@
       :server-items-length="dataLength"
   >
     <template v-slot:item.coitus="{ item }">
-      <v-checkbox v-model="item.coitus" readonly/>
+      <span>{{getCoitusText(item)}}</span>
     </template>
     <template v-slot:item.accepted="{ item }">
       <v-checkbox v-model="item.accepted" readonly/>
@@ -22,7 +22,7 @@
 
 <script>
 
-import {fetchSleepoverRequestList} from "@/components/New-sleepover-request/api";
+import {fetchSleepoverRequestList} from "@/components/Sleepover-list/api";
 
 export default {
   name: 'Sleepover-requests-table',
@@ -39,7 +39,7 @@ export default {
       ],
       data: [],
       loading: true,
-      dataLength: null
+      dataLength: null,
     }
   },
   async mounted()  {
@@ -49,6 +49,13 @@ export default {
       this.dataLength = this.data.length
     })
     this.loading = false;
+  },
+  methods: {
+    getCoitusText(item) {
+      if (item.coitus) {
+        return item.coitus_probability ? item.coitus_probability.description_alt: 'Ano'
+      } return 'Ne'
+    }
   }
 }
 </script>

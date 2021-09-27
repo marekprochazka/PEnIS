@@ -20,8 +20,9 @@ class SleepoverRequestSerializer(SleepoverRequestUpdateSerializer):
 
 
 class SleepoverRequestListSerializer(serializers.ModelSerializer):
+    coitus_probability = TypeCoitusProbabilitySerializer()
     class Meta:
         model = SleepoverRequest
         fields = ['id', 'requester_name', 'sleepover_date_from', 'sleepover_date_to',
-                  'num_persons', 'accepted', 'coitus',
+                  'num_persons', 'accepted', 'coitus', 'coitus_probability'
                   ]

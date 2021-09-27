@@ -27,7 +27,7 @@
                 label="Datum příjezdu"
                 validate-on-blur
                 outlined
-                :rules="[rules.required]"
+                :rules="pickerRules"
             >
               <template v-slot:append>
                 <DatePicker v-model="formData.sleepover_date_from" :allowed-dates="disablePastDates"/>
@@ -44,7 +44,7 @@
                 label="Odhadovaný čas příjezdu"
                 validate-on-blur
                 outlined
-                :rules="[rules.required]"
+                :rules="pickerRules"
             >
               <template v-slot:append>
                 <TimePicker v-model="formData.estimated_arrive_time"/>
@@ -63,7 +63,7 @@
                 label="Datum odjezdu"
                 validate-on-blur
                 outlined
-                :rules="[rules.required]"
+                :rules="pickerRules"
             >
               <template v-slot:append>
                 <DatePicker v-model="formData.sleepover_date_to" :allowed-dates="disableDatesBeforeDateFrom"/>
@@ -81,7 +81,7 @@
                 label="Odhadovaný čas odjezdu"
                 validate-on-blur
                 outlined
-                :rules="[rules.required]"
+                :rules="pickerRules"
             >
               <template v-slot:append>
                 <TimePicker v-model="formData.estimated_leave_time"/>
@@ -138,7 +138,6 @@
                 label="Odhadovaný čas začátku sexu"
                 validate-on-blur
                 outlined
-                :rules="formData.coitus ? [rules.required]:[]"
             >
               <template v-slot:append>
                 <TimePicker v-model="formData.estimated_coitus_time_start"/>
@@ -155,7 +154,6 @@
                 label="Odhadovaný čas konce sexu"
                 validate-on-blur
                 outlined
-                :rules="formData.coitus ? [rules.required]:[]"
             >
               <template v-slot:append>
                 <TimePicker v-model="formData.estimated_coitus_time_end"/>
@@ -219,7 +217,8 @@ export default {
         coitus_probability: null,
         note: null,
       },
-      coitus_probabilities: null
+      coitus_probabilities: null,
+      pickerRules: [],
     }
   },
   async mounted() {
@@ -230,15 +229,17 @@ export default {
   },
 
   computed: {
-    today(){
+    today() {
       let today = new Date();
-      let month = today.getMonth()+1
-      return  today.getFullYear()+'-'+('00'+month).slice(-2)+'-'+today.getDate();
+      let month = today.getMonth() + 1
+      return today.getFullYear() + '-' + ('00' + month).slice(-2) + '-' + today.getDate();
     }
   },
 
   methods: {
     sendData() {
+      this.pickerRules = [rules.required]
+      console.log(this.pickerRules)
       if (this.$refs.sleepoverForm.validate()) {
         this.formData.coitus_probability = this.formData.coitus_probability ? this.formData.coitus_probability.id : null
         createSleepoverRequest(this.formData)
@@ -271,7 +272,27 @@ export default {
           this.nullizeCoitusVariables()
         }
       }
-    }
+    },
+    'formData.sleepover_date_from': {
+      handler() {
+        this.pickerRules = []
+      }
+    },
+    'formData.sleepover_date_to': {
+      handler() {
+        this.pickerRules = []
+      }
+    },
+    'formData.estimated_arrive_time': {
+      handler() {
+        this.pickerRules = []
+      }
+    },
+    'formData.estimated_leave_time': {
+      handler() {
+        this.pickerRules = []
+      }
+    },
   },
 
   components: {
