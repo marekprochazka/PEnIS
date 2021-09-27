@@ -156,7 +156,10 @@
                 outlined
             >
               <template v-slot:append>
-                <TimePicker v-model="formData.estimated_coitus_time_end"/>
+                <TimePicker v-model="formData.estimated_coitus_time_end"
+                            :allowed-hours="(val) => disableTimeBeforeCoitusStart(val, 'hr')"
+                            :allowed-minutes="(val) => disableTimeBeforeCoitusStart(val, 'min')"
+                />
               </template>
             </v-text-field>
           </v-col>
@@ -219,6 +222,7 @@ export default {
       },
       coitus_probabilities: null,
       pickerRules: [],
+      lastPickedHour: null
     }
   },
   async mounted() {
@@ -262,6 +266,20 @@ export default {
     },
     disablePastDates(val) {
       return val >= this.today
+    },
+    disableTimeBeforeCoitusStart(val, type) {
+      if (this.formData.estimated_coitus_time_start) {
+        if (type === 'min') {
+          if (this.lastPickedHour > parseInt(this.formData.estimated_coitus_time_start.split(':')[0])) {
+            return true
+          } else {
+            return val >= this.formData.estimated_coitus_time_start.split(':')[1]
+          }
+        } else if (type === 'hr') {
+          this.lastPickedHour = val
+          return val >= this.formData.estimated_coitus_time_start.split(':')[0]
+        }
+      }
     }
   },
 

@@ -5,7 +5,7 @@
         <v-icon>mdi-clock</v-icon>
       </v-btn>
     </template>
-    <v-time-picker v-model="picker" format="24hr"/>
+    <v-time-picker v-model="picker" format="24hr" :allowed-hours="allowedHours" :allowed-minutes="allowedMinutes"/>
   </v-menu>
 
 </template>
@@ -15,7 +15,8 @@ export default {
   props: {
     value: {type: String, default: new Date().toISOString().substr(0, 10)},
     showCurrent: {type: String, required: false},
-    allowedDates: {type: Function, required: false}
+    allowedHours: {type: Function, required: false},
+    allowedMinutes: {type: Function, required: false}
   },
   data() {
     return {
