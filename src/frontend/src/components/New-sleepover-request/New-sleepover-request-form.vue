@@ -30,7 +30,7 @@
                 :rules="[rules.required]"
             >
               <template v-slot:append>
-                <DatePicker v-model="formData.sleepover_date_from"/>
+                <DatePicker v-model="formData.sleepover_date_from" :allowed-dates="disablePastDates"/>
               </template>
             </v-text-field>
           </v-col>
@@ -66,7 +66,7 @@
                 :rules="[rules.required]"
             >
               <template v-slot:append>
-                <DatePicker v-model="formData.sleepover_date_to"/>
+                <DatePicker v-model="formData.sleepover_date_to" :allowed-dates="disableDatesBeforeDateFrom"/>
               </template>
             </v-text-field>
 
@@ -229,6 +229,14 @@ export default {
         })
   },
 
+  computed: {
+    today(){
+      let today = new Date();
+      let month = today.getMonth()+1
+      return  today.getFullYear()+'-'+('00'+month).slice(-2)+'-'+today.getDate();
+    }
+  },
+
   methods: {
     sendData() {
       if (this.$refs.sleepoverForm.validate()) {
@@ -244,6 +252,15 @@ export default {
       this.formData.coitus_probability = null
       this.formData.estimated_coitus_time_start = null
       this.formData.estimated_coitus_time_end = null
+    },
+    disableDatesBeforeDateFrom(val) {
+      if (this.formData.sleepover_date_from !== '') {
+        return val >= this.formData.sleepover_date_from
+      }
+      return true
+    },
+    disablePastDates(val) {
+      return val >= this.today
     }
   },
 
