@@ -2,7 +2,7 @@
   <v-card class="mx--center elevation-2 light">
     <v-form @submit.prevent="sendData">
       <v-container>
-        <v-row>
+        <v-row class="mt-3">
           <v-col
               cols="12"
               md="6"
@@ -11,6 +11,7 @@
                 v-model="formData.requester_name"
                 label="Jméno žadatele"
                 validate-on-blur
+                outlined
             />
           </v-col>
         </v-row>
@@ -24,6 +25,7 @@
                 v-model="formData.sleepover_date_from"
                 label="Datum příjezdu"
                 validate-on-blur
+                outlined
             >
               <template v-slot:append>
                 <DatePicker v-model="formData.sleepover_date_from"/>
@@ -39,6 +41,7 @@
                 v-model="formData.estimated_arrive_time"
                 label="Odhadovaný čas příjezdu"
                 validate-on-blur
+                outlined
             >
               <template v-slot:append>
                 <TimePicker v-model="formData.estimated_arrive_time"/>
@@ -56,6 +59,7 @@
                 v-model="formData.sleepover_date_to"
                 label="Datum odjezdu"
                 validate-on-blur
+                outlined
             >
               <template v-slot:append>
                 <DatePicker v-model="formData.sleepover_date_to"/>
@@ -72,6 +76,7 @@
                 v-model="formData.estimated_leave_time"
                 label="Odhadovaný čas odjezdu"
                 validate-on-blur
+                outlined
             >
               <template v-slot:append>
                 <TimePicker v-model="formData.estimated_leave_time"/>
@@ -89,6 +94,7 @@
                 v-model="formData.num_persons"
                 validate-on-blur
                 type="number"
+                outlined
             />
           </v-col>
           <v-col
@@ -106,10 +112,11 @@
 
             <v-select
                 label="Pravděpodobnost sexu"
-              v-model="formData.coitus_probability"
-              :items="coitus_probabilities"
-              :item-text="value => value.description"
-              :item-value="value => value"
+                v-model="formData.coitus_probability"
+                :items="coitus_probabilities"
+                :item-text="value => value.description"
+                :item-value="value => value"
+                outlined
             />
           </v-col>
         </v-row>
@@ -123,6 +130,7 @@
                 v-model="formData.estimated_coitus_time_start"
                 label="Odhadovaný čas začátku sexu"
                 validate-on-blur
+                outlined
             >
               <template v-slot:append>
                 <TimePicker v-model="formData.estimated_coitus_time_start"/>
@@ -138,11 +146,25 @@
                 v-model="formData.estimated_coitus_time_end"
                 label="Odhadovaný čas konce sexu"
                 validate-on-blur
+                outlined
             >
               <template v-slot:append>
                 <TimePicker v-model="formData.estimated_coitus_time_end"/>
               </template>
             </v-text-field>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col
+              cols="12"
+              md="12"
+          >
+            <v-textarea
+                v-model="formData.note"
+                label="Poznámka"
+                validate-on-blur
+                outlined
+            />
           </v-col>
         </v-row>
         <v-row>
@@ -155,7 +177,6 @@
         </v-row>
       </v-container>
     </v-form>
-    {{ coitus_probabilities }}
   </v-card>
 </template>
 
@@ -179,7 +200,8 @@ export default {
         estimated_coitus_time_start: null,
         estimated_coitus_time_end: null,
         accepted: false,
-        coitus_probability: null
+        coitus_probability: null,
+        note: null,
       },
       coitus_probabilities: null
     }

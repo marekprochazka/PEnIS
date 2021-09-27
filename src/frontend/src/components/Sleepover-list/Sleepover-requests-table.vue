@@ -3,6 +3,7 @@
       :headers="headers"
       :items="data"
       :loading="loading"
+      :server-items-length="dataLength"
   >
     <template v-slot:item.coitus="{ item }">
       <v-checkbox v-model="item.coitus" readonly/>
@@ -37,13 +38,15 @@ export default {
         {text: 'Proces schválení', value: 'accept_action', align: 'center'},
       ],
       data: [],
-      loading: true
+      loading: true,
+      dataLength: null
     }
   },
   async mounted()  {
     await fetchSleepoverRequestList()
     .then(response => {
       this.data = response.data
+      this.dataLength = this.data.length
     })
     this.loading = false;
   }

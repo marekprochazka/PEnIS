@@ -10,7 +10,9 @@ class SleepoverRequestUpdateSerializer(serializers.ModelSerializer):
         fields = ['requester_name', 'sleepover_date_from', 'sleepover_date_to',
                   'estimated_arrive_time', 'estimated_leave_time',
                   'num_persons', 'accepted', 'coitus',
-                  'estimated_coitus_time_start', 'estimated_coitus_time_end', 'coitus_probability']
+                  'estimated_coitus_time_start', 'estimated_coitus_time_end', 'coitus_probability',
+                  'note'
+                  ]
 
 
 class SleepoverRequestSerializer(SleepoverRequestUpdateSerializer):

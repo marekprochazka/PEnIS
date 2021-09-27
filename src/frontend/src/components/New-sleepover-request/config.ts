@@ -16,6 +16,7 @@ export interface INewSleepoverRequest {
     estimated_coitus_time_end:string,
     accepted: boolean,
     coitus_probability: string,
+    note: string,
 }
 
 export interface ITypeCoitusProbability {
