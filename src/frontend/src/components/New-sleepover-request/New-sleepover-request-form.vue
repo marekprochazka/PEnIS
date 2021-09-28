@@ -6,6 +6,7 @@
           <v-col
               cols="12"
               md="6"
+              class="input--required"
           >
             <v-text-field
                 v-model="formData.requester_name"
@@ -20,6 +21,7 @@
           <v-col
               cols="12"
               md="6"
+              class="input--required"
           >
             <v-text-field
                 readonly
@@ -44,7 +46,6 @@
                 label="Odhadovaný čas příjezdu"
                 validate-on-blur
                 outlined
-                :rules="pickerRules"
             >
               <template v-slot:append>
                 <TimePicker v-model="formData.estimated_arrive_time"/>
@@ -56,6 +57,7 @@
           <v-col
               cols="12"
               md="6"
+              class="input--required"
           >
             <v-text-field
                 readonly
@@ -81,7 +83,6 @@
                 label="Odhadovaný čas odjezdu"
                 validate-on-blur
                 outlined
-                :rules="pickerRules"
             >
               <template v-slot:append>
                 <TimePicker v-model="formData.estimated_leave_time"/>
@@ -93,6 +94,7 @@
           <v-col
               cols="12"
               md="3"
+              class="input--required"
           >
             <v-text-field
                 label="Počet osob"
@@ -113,7 +115,7 @@
             />
           </v-col>
           <v-col v-if="formData.coitus"
-                 cols="12" md="6"
+                 cols="12" md="6" class="input--required"
           >
 
             <v-select
@@ -300,17 +302,7 @@ export default {
       handler() {
         this.pickerRules = []
       }
-    },
-    'formData.estimated_arrive_time': {
-      handler() {
-        this.pickerRules = []
-      }
-    },
-    'formData.estimated_leave_time': {
-      handler() {
-        this.pickerRules = []
-      }
-    },
+    }
   },
 
   components: {
