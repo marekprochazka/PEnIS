@@ -6,11 +6,18 @@ from rest_framework.views import APIView
 from sleepover_form.models import SleepoverRequest
 from sleepover_form.serializers.sleepover_request import SleepoverRequestSerializer, SleepoverRequestListSerializer, \
     SleepoverRequestUpdateSerializer
+from datetime import date
+from django.db.models import Q
 
 
 class SleepoverRequestListView(ListAPIView):
     serializer_class = SleepoverRequestListSerializer
-    queryset = SleepoverRequest.objects.all()
+
+    def get_queryset(self):
+        today = date.today()
+        return SleepoverRequest.objects.filter(
+            Q(sleepover_date_from__range=[today, '3000-01-01']) | Q(sleepover_date_from__isnull=True))
+        # return SleepoverRequest.objects.all()
 
 
 class SleepoverRequestCreateView(CreateAPIView):
