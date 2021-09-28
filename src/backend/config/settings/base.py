@@ -44,7 +44,7 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = ['rest_framework', 'django_js_reverse', 'django_extensions', 'drf_yasg']
 
-MY_APPS = ['core.apps.CoreConfig', 'sleepover_form.apps.SleepoverFormConfig']
+MY_APPS = ['core.apps.CoreConfig', 'sleepover_form.apps.SleepoverFormConfig', 'shopping.apps.ShoppingConfig']
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + MY_APPS
 

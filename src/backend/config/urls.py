@@ -25,6 +25,7 @@ urlpatterns = [
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('api/core/', include('core.urls.api')),
     path('api/sleepover-form/', include('sleepover_form.urls.api')),
+    path('api/shopping/', include('shopping.urls.api')),
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
     path('<path:resource>', TemplateView.as_view(template_name='index.html'), name='index_pathed'),
 ]

@@ -10,3 +10,6 @@ class TypeCoitusProbability(BaseTypeModel):
         verbose_name = _('Type coitus probability')
         verbose_name_plural = _('Type coitus probabilities')
         ordering = ['-order']
+
+
+
