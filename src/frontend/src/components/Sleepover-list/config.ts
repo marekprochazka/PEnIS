@@ -1,7 +1,6 @@
 export const URLS = {
     list:'sleepover_form:list',
-    create:'sleepover_form:create',
-    probabilitiesList:'sleepover_form:coitus_probabilities_list'
+    accept_status:'sleepover_form:accept_status_update'
 }
 
 export interface ITypeCoitusProbability {
@@ -19,4 +18,8 @@ export interface INewSleepoverRequestListItem {
     coitus: boolean,
     accepted: boolean,
     coitus_probability: ITypeCoitusProbability
+}
+
+export interface IAcceptStatusData {
+    accept_status: string
 }

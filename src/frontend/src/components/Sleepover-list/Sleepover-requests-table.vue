@@ -12,8 +12,8 @@
       <v-checkbox v-model="item.accepted" readonly/>
     </template>
     <template v-slot:item.accept_action="{ item }">
-      <v-btn block color="primary" v-if="!item.accepted" @click="item.accepted=true">Schválit</v-btn>
-      <v-btn block color="primary" v-else-if="item.accepted" @click="item.accepted=false">Zrušit</v-btn>
+      <v-btn block color="primary" v-if="!item.accepted" @click="acceptStatusUpdate(item, true)">Schválit</v-btn>
+      <v-btn block color="primary" v-else-if="item.accepted" @click="acceptStatusUpdate(item, false)">Zrušit</v-btn>
     </template>
 
   </v-data-table>
@@ -22,7 +22,7 @@
 
 <script>
 
-import {fetchSleepoverRequestList} from "@/components/Sleepover-list/api";
+import {fetchSleepoverRequestList, updateAcceptStatus} from "@/components/Sleepover-list/api";
 
 export default {
   name: 'Sleepover-requests-table',
@@ -55,6 +55,12 @@ export default {
       if (item.coitus) {
         return item.coitus_probability ? item.coitus_probability.description_alt: 'Ano'
       } return 'Ne'
+    },
+    acceptStatusUpdate(item, status) {
+      updateAcceptStatus({accept_status:status}, item.id)
+      .then(() =>{
+        item.accepted = status
+      })
     }
   }
 }
