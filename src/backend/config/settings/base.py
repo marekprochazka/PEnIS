@@ -147,3 +147,15 @@ SITE_ID = 1
 
 JS_REVERSE_OUTPUT_PATH = os.path.join(BASE_DIR, '../frontend/src/django-reverse')
 JS_REVERSE_JS_GLOBAL_OBJECT_NAME = 'window'
+
+COITUS_COLORS = {
+    '0': '#0cf7f3',
+    '1': '#0c8df7',
+    '2': '#a10cf7',
+    '3': '#f70ccc',
+    '4': '#f70c56',
+    '5': '#c0f70c',
+    '6': '#466905',
+    'default': '#0cf714'
+    # TODO pls some graphic change these colors. thx
+}

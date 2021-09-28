@@ -60,6 +60,7 @@ export default {
       updateAcceptStatus({accept_status:status}, item.id)
       .then(() =>{
         item.accepted = status
+        this.$router.go()
       })
     }
   }

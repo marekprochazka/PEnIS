@@ -2,3 +2,16 @@
   margin-right: auto;
   margin-left: auto;
 }
+
+.input--center {
+  input {
+    text-align: center;
+  }
+}
+
+.input--required {
+  .v-text-field--outlined fieldset {
+    border-width: 2px !important;
+    color: black !important;
+  }
+}
