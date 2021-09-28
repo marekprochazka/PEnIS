@@ -54,6 +54,11 @@ export default {
           icon: 'mdi-calendar',
           text: 'Seznam pobytů',
           route: 'Sleepovers-list'
+        },
+        {
+          icon: 'mdi-cart',
+          text: 'Nákupní seznam',
+          route: 'Shopping-list'
         }
       ]
 
