@@ -5,7 +5,9 @@
       :loading="loading"
       :server-items-length="dataLength"
   >
-
+    <template v-slot:item.bought="{ item }">
+      <v-checkbox v-model="item.bought" readonly/>
+    </template>
   </v-data-table>
 </template>
 
@@ -21,7 +23,7 @@ export default {
         {text: 'Popis', value: 'description', align: 'center'},
         {text: 'Množství', value: 'quantity', align: 'center'},
         {text: 'Naléhavost', value: 'urgency.description', align: 'center'},
-        {text: 'Je koupeno', value: 'bought', align: 'center'},
+        {text: 'Je koupeno', value: 'bought'},
         {text: '', value: 'actions'},
       ],
       data: [],
@@ -31,9 +33,9 @@ export default {
   async mounted() {
     this.loading = true
     await fetchShoppingList()
-    .then(response => {
-      this.data = response.data
-    })
+        .then(response => {
+          this.data = response.data
+        })
     this.loading = false
   },
 
