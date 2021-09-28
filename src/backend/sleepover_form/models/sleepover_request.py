@@ -2,10 +2,14 @@ from django.db import models
 from core.models import BaseModel
 from django.utils.translation import gettext_lazy as _
 
+from sleepover_form.managers import SleepoverRequestManager
 from sleepover_form.models.types import TypeCoitusProbability
 
 
 class SleepoverRequest(BaseModel):
+
+    objects = SleepoverRequestManager()
+
     requester_name = models.CharField(max_length=64, verbose_name=_('Requester name'), null=True, blank=True)
     sleepover_date_from = models.DateField(verbose_name=_('Sleepover date from'), null=True, blank=True)
     sleepover_date_to = models.DateField(verbose_name=_('Sleepover date to'), null=True, blank=True)
