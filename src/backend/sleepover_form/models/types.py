@@ -4,7 +4,7 @@ from django.db import models
 
 
 class TypeCoitusProbability(BaseTypeModel):
-    description_alt = models.CharField(verbose_name=_("Description"), max_length=255)
+    description_alt = models.CharField(verbose_name=_("Alternative description"), max_length=255)
 
     class Meta:
         verbose_name = _('Type coitus probability')
