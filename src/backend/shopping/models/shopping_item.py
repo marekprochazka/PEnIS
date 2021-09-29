@@ -9,5 +9,5 @@ class ShoppingItem(BaseModel):
     description = models.CharField(max_length=128, verbose_name=_('Description'))
     quantity = models.CharField(max_length=128, verbose_name=_('Quantity'))
     urgency = models.ForeignKey(TypeUrgency, on_delete=models.PROTECT, verbose_name=_('Urgency'))
-    bought = models.BooleanField(verbose_name=_('Bought'))
+    bought = models.BooleanField(verbose_name=_('Bought'), default=False)
     # TODO Type of product

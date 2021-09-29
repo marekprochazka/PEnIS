@@ -1,19 +1,28 @@
 <template>
-  <v-data-table
-      :headers="headers"
-      :items="data"
-      :loading="loading"
-      :server-items-length="dataLength"
-  >
-    <template v-slot:item.bought="{ item }">
-      <v-checkbox v-model="item.bought" readonly/>
-    </template>
-  </v-data-table>
+  <div>
+    <v-data-table
+        :headers="headers"
+        :items="data"
+        :loading="loading"
+        :server-items-length="dataLength"
+    >
+      <template v-slot:item.bought="{ item }">
+        <v-checkbox v-model="item.bought" readonly/>
+      </template>
+      <template v-slot:item.actions="{ item }">
+        <v-btn v-if="!item.bought" color="primary" @click="setBought(item.id)" block>Koupeno</v-btn>
+      </template>
+    </v-data-table>
+    <v-btn v-if="!boughtShown" @click="showBought" color="primary">Zobrazit koupené předměty</v-btn>
+    <v-btn v-else @click="hideBought" color="primary">Zobrazit nekoupené předměty</v-btn>
+
+  </div>
+
 </template>
 
 <script>
 
-import {fetchShoppingList} from "@/components/Shopping-list/api";
+import {fetchShoppingList, updateShoppingItem} from "@/components/Shopping-list/api";
 
 export default {
   name: 'Shopping-list-component',
@@ -27,16 +36,36 @@ export default {
         {text: '', value: 'actions'},
       ],
       data: [],
-      loading: false
+      loading: false,
+      boughtShown: false
     }
   },
   async mounted() {
-    this.loading = true
-    await fetchShoppingList()
-        .then(response => {
-          this.data = response.data
-        })
-    this.loading = false
+    await this.getData()
+  },
+  methods: {
+    async getData(param) {
+      this.loading = true
+      await fetchShoppingList(param ? param : null)
+          .then(response => {
+            this.data = response.data
+          })
+      this.loading = false
+    },
+    async showBought() {
+      await this.getData({bought: true})
+      this.boughtShown = true
+    },
+    async hideBought() {
+      await this.getData()
+      this.boughtShown = false
+    },
+    setBought(id) {
+      updateShoppingItem({bought: true}, id)
+          .then(() => {
+            this.$router.go()
+          })
+    }
   },
 
   computed: {
