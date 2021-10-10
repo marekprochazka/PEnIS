@@ -18,6 +18,7 @@ Primary target is for Czech users. English localisation will be added later.
 ![MySql](https://img.shields.io/badge/Database-MySql-informational?style=for-the-badge&logo=MySQL&logoColor=white&color=00758F)
 ![API](https://img.shields.io/badge/Api-DRF-informational?style=for-the-badge&logo=Python&logoColor=white&color=092e20)
 ![Authentication](https://img.shields.io/badge/Authentication-JWT-informational?style=for-the-badge&logo=JSON+Web+Tokens&logoColor=white&color=be0027)
+![API-documentation](https://img.shields.io/badge/Api%20documentation-Swagger-informational?style=for-the-badge&logo=Swagger&logoColor=white&color=85ea2d)
 
 ---
 
