@@ -59,6 +59,11 @@ export default {
           icon: 'mdi-cart',
           text: 'Nákupní seznam',
           route: 'Shopping-list'
+        },
+        {
+          icon: 'mdi-currency-usd',
+          text: 'Dlužná částka',
+          route: 'Cash-due'
         }
       ]
 

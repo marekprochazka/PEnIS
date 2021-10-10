@@ -4,6 +4,8 @@ import Home from '../views/Home/App.vue'
 import NewSleepoverRequest from '../views/New-sleepover-request/App.vue'
 import SleepoversList from '../views/Sleepovers-list/App.vue'
 import ShoppingList from '../views/Shopping-list/App.vue'
+import CashDue from '../views/Cash-due/App.vue'
+
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
@@ -26,6 +28,11 @@ const routes: Array<RouteConfig> = [
     path: '/shopping/list',
     name: 'Shopping-list',
     component: ShoppingList
+  },
+  {
+    path: '/cash-due',
+    name: 'Cash-due',
+    component: CashDue
   }
 ]
 
