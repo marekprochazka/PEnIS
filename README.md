@@ -39,12 +39,12 @@ English localisation | Soon ❌
 
 ## Usage
 
----
+
 
 ### Prerequisites
 - python 3.8
 - node.js (access to npm commands)
----
+
 
 ### Setup
 1. Clone repository
@@ -53,7 +53,7 @@ English localisation | Soon ❌
 4. Create .env file in root folder (user .env.example)
 5. in src/backend run `python manage.py migrate`
 6. in src/frontend run `npm i`
----
+
 
 ### Run
 - in src/frontend `npm run serve`
