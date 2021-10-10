@@ -36,6 +36,9 @@ export default {
       paidBackShown: false
     }
   },
+  async mounted() {
+    await this.getData()
+  },
   methods: {
     async getData(param) {
       this.loading = true
@@ -46,7 +49,7 @@ export default {
       this.loading = false
     },
     async showPaidBack() {
-      await this.getData({bought: true})
+      await this.getData({paid: true})
       this.paidBackShown = true
     },
     async hidePaidBack() {
@@ -54,7 +57,7 @@ export default {
       this.paidBackShown = false
     },
     setBought(id) {
-      updateCashDueItem({paid_back: true}, id)
+      updateCashDueItem({paid: true}, id)
           .then(() => {
             this.$router.go()
           })

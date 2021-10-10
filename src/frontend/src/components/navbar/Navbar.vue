@@ -62,7 +62,7 @@ export default {
         },
         {
           icon: 'mdi-currency-usd',
-          text: 'Dlužná částka',
+          text: 'Dlužná hotovost',
           route: 'Cash-due'
         }
       ]

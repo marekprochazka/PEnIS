@@ -1,5 +1,5 @@
 <template>
-  <v-form ref="CashDueForm">
+  <v-form @submit.prevent="sendData" ref="CashDueForm">
     <v-row>
       <v-col cols="12" md="3">
         <v-text-field v-model="formData.description" label="Popis" outlined/>
