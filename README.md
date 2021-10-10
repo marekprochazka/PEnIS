@@ -11,7 +11,13 @@ for which reason is necessary to have control over these aspects of living toget
 
 ## Technologies
 
-![Django](https://img.shields.io/badge/Backend-Django-informational?style=flat&logo=Django&logoColor=white&color=092e20)
+![Django](https://img.shields.io/badge/Backend-Django-informational?style=for-the-badge&logo=Django&logoColor=white&color=092e20)
+![Vue](https://img.shields.io/badge/Frontend-Vue.js-informational?style=for-the-badge&logo=Vue.js&logoColor=white&color=42b883)
+![Vuetify](https://img.shields.io/badge/Components-Vuetify-informational?style=for-the-badge&logo=Vuetify&logoColor=white&color=0099e5)
+![MySql](https://img.shields.io/badge/Database-MySql-informational?style=for-the-badge&logo=MySQL&logoColor=white&color=00758F)
+![API](https://img.shields.io/badge/Api-DRF-informational?style=for-the-badge&logo=Python&logoColor=white&color=092e20)
+![Authentication](https://img.shields.io/badge/Authentication-JWT-informational?style=for-the-badge&logo=JSON+Web+Tokens&logoColor=white&color=be0027)
+
 ---
 
 ## Features
