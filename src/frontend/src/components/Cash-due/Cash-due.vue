@@ -8,7 +8,7 @@
         <v-checkbox v-model="item.paid_back" readonly/>
       </template>
       <template v-slot:item.actions="{item}">
-        <v-btn v-if="!item.paid_back" color="primary" @click="setBought(item.id)" block>Zaplaceno</v-btn>
+        <v-btn v-if="!item.paid_back" color="primary" @click="setPaidBack(item.id)" block>Zaplaceno</v-btn>
       </template>
     </v-data-table>
     <v-btn v-if="!paidBackShown" @click="showPaidBack" color="primary">Zobrazit zaplacené předměty</v-btn>
@@ -56,8 +56,8 @@ export default {
       await this.getData()
       this.paidBackShown = false
     },
-    setBought(id) {
-      updateCashDueItem({paid: true}, id)
+    setPaidBack(id) {
+      updateCashDueItem({paid_back: true}, id)
           .then(() => {
             this.$router.go()
           })

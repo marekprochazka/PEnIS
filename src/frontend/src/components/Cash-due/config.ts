@@ -5,7 +5,7 @@ export const URLS = {
 }
 
 export interface IPaidBack {
-    paid: boolean
+    paid_back: boolean
 }
 
 export interface ICashDueListItem {
