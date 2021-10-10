@@ -8,3 +8,7 @@ class CashDue(BaseModel):
     user = models.CharField(max_length=128, verbose_name=_('User'))
     money_amount = models.IntegerField(verbose_name=_('Money amount'))
     paid_back = models.BooleanField(default=False, verbose_name=_('Paid back'))
+
+    class Meta:
+        verbose_name = _("Cash Due")
+        verbose_name_plural = _("Cash Dues")

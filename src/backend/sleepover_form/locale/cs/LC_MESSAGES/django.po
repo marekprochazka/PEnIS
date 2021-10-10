@@ -3,45 +3,87 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-19 17:23+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2021-10-10 15:49+0200\n"
+"PO-Revision-Date: 2021-10-10 15:49+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
 "<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
-#: .\sleepover_form\models\sleepover_request.py:7
-msgid "Requester name"
-msgstr ""
+"Language: cs\n"
+"X-Generator: Poedit 3.0\n"
 
-#: .\sleepover_form\models\sleepover_request.py:8
-msgid "Sleepover date from"
-msgstr ""
-
-#: .\sleepover_form\models\sleepover_request.py:9
-msgid "Sleepover date to"
-msgstr ""
-
-#: .\sleepover_form\models\sleepover_request.py:10
-msgid "Number of persons"
-msgstr ""
-
-#: .\sleepover_form\models\sleepover_request.py:11
-msgid "Accepted"
-msgstr ""
+#: .\sleepover_form\apps.py:8
+msgid "Sleepover form"
+msgstr "Návštěvní formulář"
 
 #: .\sleepover_form\models\sleepover_request.py:13
-msgid "Is coitus"
-msgstr ""
+msgid "Requester name"
+msgstr "Jméno žadatele"
 
 #: .\sleepover_form\models\sleepover_request.py:14
+msgid "Sleepover date from"
+msgstr "Začátek návštěvy (datum)"
+
 #: .\sleepover_form\models\sleepover_request.py:15
+msgid "Sleepover date to"
+msgstr "Konec návštěvy (datum)"
+
+#: .\sleepover_form\models\sleepover_request.py:16
+msgid "Estimated arrive time"
+msgstr "Orientační čas příjezdu"
+
+#: .\sleepover_form\models\sleepover_request.py:17
+msgid "Estimated leave time"
+msgstr "Orientační čas odjezdu"
+
+#: .\sleepover_form\models\sleepover_request.py:18
+msgid "Number of persons"
+msgstr "Počet osob"
+
+#: .\sleepover_form\models\sleepover_request.py:19
+msgid "Accepted"
+msgstr "Schváleno"
+
+#: .\sleepover_form\models\sleepover_request.py:21
+msgid "Note"
+msgstr "Poznámka k návštěvě"
+
+#: .\sleepover_form\models\sleepover_request.py:23
+msgid "Is coitus"
+msgstr "Bude sex"
+
+#: .\sleepover_form\models\sleepover_request.py:25
+msgid "Coitus probability"
+msgstr "Pravděpodobnost sexu"
+
+#: .\sleepover_form\models\sleepover_request.py:26
+#: .\sleepover_form\models\sleepover_request.py:27
 msgid "Estimated coitus time start"
-msgstr ""
+msgstr "Odhadovaný čas začátku sexu"
+
+#: .\sleepover_form\models\sleepover_request.py:30
+msgid "Sleepover request"
+msgstr "Žádost o návštevu"
+
+#: .\sleepover_form\models\sleepover_request.py:31
+msgid "Sleepover requests"
+msgstr "Žádosti o návštevu"
+
+#: .\sleepover_form\models\types.py:7
+msgid "Alternative description"
+msgstr "Alternativní popis"
+
+#: .\sleepover_form\models\types.py:10
+msgid "Type coitus probability"
+msgstr "Pravděpodobnost sexu"
+
+#: .\sleepover_form\models\types.py:11
+msgid "Type coitus probabilities"
+msgstr "Pravděpodobnosti sexu"
