@@ -36,3 +36,11 @@ for which reason is necessary to have control over these aspects of living toget
 - JWT authentication
 - Cash due statistics (for example which inhabitants has spent the most on common needs)
 - Filtering for big data in tables
+
+---
+
+## Setup
+
+---
+
+## License 
