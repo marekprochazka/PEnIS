@@ -2,7 +2,7 @@
 Groceries recording and visits controling information system (in Czech: Potraviny Evidující a Nocležný Informační Systém) 
 is a system that allows control over finances and visits to flats and houses that are typically inhabited by students or other non-family related people 
 for which reason is necessary to have control over these aspects of living together.
-Primary target is for Czech users. English localosation will be added later.
+Primary target is for Czech users. English localisation will be added later.
 
 ---
 
@@ -33,6 +33,7 @@ Specified users and houses | Soon ❌
 JWT authentication | Soon ❌
 Cash due statistics | Soon ❌
 Filtering for big data in tables | Soon ❌
+English localisation | Soon ❌
 
 ---
 
