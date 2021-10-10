@@ -2,13 +2,13 @@
   <v-form @submit.prevent="sendData" ref="CashDueForm">
     <v-row>
       <v-col cols="12" md="3">
-        <v-text-field v-model="formData.description" label="Popis" outlined/>
+        <v-text-field dense v-model="formData.description" label="Popis" outlined/>
       </v-col>
       <v-col cols="12" md="3">
-        <v-text-field v-model="formData.user" label="Koupil" outlined/>
+        <v-text-field dense v-model="formData.user" label="Koupil" outlined/>
       </v-col>
       <v-col>
-        <v-text-field v-model="formData.money_amount" label="Dlužná částka" outlined/>
+        <v-text-field dense v-model="formData.money_amount" label="Dlužná částka" outlined/>
       </v-col>
       <v-col cols="12" md="3">
         <v-btn color="primary" type="submit" block>Přidat položku</v-btn>

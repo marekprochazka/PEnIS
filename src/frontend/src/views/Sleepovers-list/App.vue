@@ -1,7 +1,10 @@
 <template>
   <div class="sleepoversList__container">
-    <SleepoverRequestsTable />
-    <SleepoverRequestsCalendar class="mt-5" />
+    <v-card elevation="2" class="mt-5 pa-7">
+      <h1 class="mt-3 mb-3">Seznam návštěv</h1>
+      <SleepoverRequestsTable/>
+      <SleepoverRequestsCalendar class="mt-5"/>
+    </v-card>
   </div>
 </template>
 

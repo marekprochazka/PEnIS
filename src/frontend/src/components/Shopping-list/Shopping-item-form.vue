@@ -5,13 +5,13 @@
           cols="12"
           md="3"
       >
-        <v-text-field v-model="formData.description" label="Popis" outlined/>
+        <v-text-field dense v-model="formData.description" label="Popis" outlined/>
       </v-col>
       <v-col
           cols="12"
           md="3"
       >
-        <v-text-field v-model="formData.quantity" label="Množství" outlined/>
+        <v-text-field dense v-model="formData.quantity" label="Množství" outlined/>
       </v-col>
       <v-col
           cols="12"
@@ -22,6 +22,7 @@
                   :items="urgencies"
                   :item-text="value => value.description"
                   :item-value="value => value"
+                  dense
         />
       </v-col>
       <v-col

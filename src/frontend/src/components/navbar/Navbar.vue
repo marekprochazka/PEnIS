@@ -47,12 +47,12 @@ export default {
         },
         {
           icon: 'mdi-calendar-plus',
-          text: 'Nová žádost o pobyt',
+          text: 'Nová žádost o návštěvu',
           route: 'New-sleepover-request'
         },
         {
           icon: 'mdi-calendar',
-          text: 'Seznam pobytů',
+          text: 'Seznam návštěv',
           route: 'Sleepovers-list'
         },
         {

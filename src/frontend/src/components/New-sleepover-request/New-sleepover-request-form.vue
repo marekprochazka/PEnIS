@@ -1,12 +1,12 @@
 <template>
-  <v-card class="mx--center elevation-2 light">
     <v-form @submit.prevent="sendData" ref="sleepoverForm">
       <v-container>
-        <v-row class="mt-3">
+        <v-row class="mt-1">
           <v-col
               cols="12"
               md="6"
               class="input--required"
+              dense
           >
             <v-text-field
                 v-model="formData.requester_name"
@@ -14,6 +14,7 @@
                 validate-on-blur
                 outlined
                 :rules="[rules.required]"
+                dense
             />
           </v-col>
         </v-row>
@@ -30,6 +31,7 @@
                 validate-on-blur
                 outlined
                 :rules="pickerRules"
+                dense
             >
               <template v-slot:append>
                 <DatePicker v-model="formData.sleepover_date_from" :allowed-dates="disablePastDates"/>
@@ -46,6 +48,7 @@
                 label="Odhadovaný čas příjezdu"
                 validate-on-blur
                 outlined
+                dense
             >
               <template v-slot:append>
                 <TimePicker v-model="formData.estimated_arrive_time"/>
@@ -66,6 +69,7 @@
                 validate-on-blur
                 outlined
                 :rules="pickerRules"
+                dense
             >
               <template v-slot:append>
                 <DatePicker v-model="formData.sleepover_date_to" :allowed-dates="disableDatesBeforeDateFrom"/>
@@ -83,6 +87,7 @@
                 label="Odhadovaný čas odjezdu"
                 validate-on-blur
                 outlined
+                dense
             >
               <template v-slot:append>
                 <TimePicker v-model="formData.estimated_leave_time"/>
@@ -103,6 +108,7 @@
                 type="number"
                 outlined
                 :rules="[rules.required]"
+                dense
             />
           </v-col>
           <v-col
@@ -112,6 +118,7 @@
             <v-checkbox
                 label="Bude sex?"
                 v-model="formData.coitus"
+                dense
             />
           </v-col>
           <v-col v-if="formData.coitus"
@@ -126,6 +133,7 @@
                 :item-value="value => value"
                 outlined
                 :rules="formData.coitus ? [rules.required]:[]"
+                dense
             />
           </v-col>
         </v-row>
@@ -140,6 +148,7 @@
                 label="Odhadovaný čas začátku sexu"
                 validate-on-blur
                 outlined
+                dense
             >
               <template v-slot:append>
                 <TimePicker v-model="formData.estimated_coitus_time_start"/>
@@ -156,6 +165,7 @@
                 label="Odhadovaný čas konce sexu"
                 validate-on-blur
                 outlined
+                dense
             >
               <template v-slot:append>
                 <TimePicker v-model="formData.estimated_coitus_time_end"
@@ -176,6 +186,8 @@
                 label="Poznámka"
                 validate-on-blur
                 outlined
+                dense
+                rows="1"
             />
           </v-col>
         </v-row>
@@ -192,7 +204,6 @@
         </v-row>
       </v-container>
     </v-form>
-  </v-card>
 </template>
 
 <script>

@@ -4,7 +4,7 @@
         :headers="headers"
         :items="data"
         :loading="loading">
-      <template v-slot:item.paid-back="{item}">
+      <template v-slot:item.paid_back="{item}">
         <v-checkbox v-model="item.paid_back" readonly/>
       </template>
       <template v-slot:item.actions="{item}">
