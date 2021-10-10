@@ -23,29 +23,29 @@ Primary target is for Czech users. English localosation will be added later.
 
 ## Features
 
-- Visit request
-  - Creating request with the specified date or even time of a visit
-  - Process of accepting the visit request
-  - Info table and calendar with all visits
-- Shopping list
-- Cash due
+Desctiption | Status
+--- | ---
+Creating request with the specified date or even time of a visit | Done ✔
+Process of accepting the visit request | Done ✔
+Info table and calendar with all visits | Done ✔
+Cash due | Done ✔
+Specified users and houses | Soon ❌
+JWT authentication | Soon ❌
+Cash due statistics | Soon ❌
+Filtering for big data in tables | Soon ❌
 
 ---
 
-## Working on
-- Specified users and houses
-- JWT authentication
-- Cash due statistics (for example which inhabitants has spent the most on common needs)
-- Filtering for big data in tables
+## Usage
 
 ---
 
-## Prerequisites
+### Prerequisites
 - python 3.8
 - node.js (access to npm commands)
 ---
 
-## Setup
+### Setup
 1. Clone repository
 2. Create venv with python 3.8
 3. Install requirements 
@@ -54,7 +54,7 @@ Primary target is for Czech users. English localosation will be added later.
 6. in src/frontend run `npm i`
 ---
 
-## Run
+### Run
 - in src/frontend `npm run serve`
 - in src/backend `python manage.py run server`
 - open on backend port (default is 8000)
